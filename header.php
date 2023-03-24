@@ -8,7 +8,7 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="product.php"><img src="img/logo.png" alt="" width="120" height="60"></li></a>
+        <li><a href="product_page.php?currency=<?php echo $_GET['currency'];?>""><img src="img/logo.png" alt="" width="120" height="60"></li></a>
         <li class="mt-2 mx-5">
           <select class="form-select" id="currency_atual">
             <option value="EUR">EUR</option>

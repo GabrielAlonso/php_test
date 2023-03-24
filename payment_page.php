@@ -22,7 +22,7 @@ if ($_SESSION['validation'] == 'AMSUb!982NG2') {
         <div class="col-md-4 col-lg-4 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-primary">Your cart</span>
-                <span class="badge bg-primary rounded-pill">1</span>
+                <span id="display_total" class="badge bg-primary rounded-pill">1</span>
             </h4>
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -30,15 +30,15 @@ if ($_SESSION['validation'] == 'AMSUb!982NG2') {
                         <h6 class="my-0">' . $product->name . '</h6>
                         <small class="text-muted">' . $product->description . '</small>
                     </div>
-                    <span class="text-muted">' . Product::getCurrency($product->price_in_eur) . '</span>
+                    <span class="text-muted"><div id="total_pr">' . Product::getCurrency($product->price_in_eur) . '</div></span>
                 </li>
                 <li class="list-group-item d-flex justify-content-around">
-                    <button type="button" id="plus_prod" class="btn-prod btn btn-lg btn-danger">-</button>
-                    <button type="button" id="less_prod" class="btn-prod btn btn-lg btn-primary">+</button>
+                    <button type="button" onclick="addCart(this.id)" id="less_prod" class="btn-prod btn btn-lg btn-danger">-</button>
+                    <button type="button" onclick="addCart(this.id)" id="plus_prod" class="btn-prod btn btn-lg btn-primary">+</button>
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total</span>
-                    <strong>' . Product::getCurrency($product->price_in_eur) . '</strong>
+                    <strong><div id="total_price"></div></strong>
                 </li>
                 
                 <li class="list-group-item d-flex justify-content-between">
