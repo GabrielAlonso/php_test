@@ -1,3 +1,7 @@
+<?php
+error_reporting(0);
+require_once('assets/connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,16 +22,31 @@
         <h2>Products</h2>
         <div class="row row-cols-1 row-cols-md-5 mb-3 text-center">
             <?php
-            for ($i = 0; $i < 5; $i++) {
+
+            $value_price = '';
+            $stmt = "SELECT * FROM product";
+            foreach ($conn->query($stmt) as $row) {
+
+                if ($_GET['currency'] == 'USD') {
+                    $value_price = "$ " . number_format((1.08 * $row['price_in_eur']),2);
+                } else if($_GET['currency'] == 'BRL') {
+                    // Integration with some API currency converter
+                    $value_price = "R$ " . number_format((5.70 * $row['price_in_eur']),2,",",".");
+                } else {
+                    // Integration with some API currency converter
+                    $value_price = number_format($row['price_in_eur'],2,",",".") . " €";
+                    
+                }
+
                 echo '<div class="col">
                         <div class="card mb-4 rounded-3 shadow-sm">
                             <div class="card-header py-3">
-                                <h4 class="my-0 fw-normal">Wine ' . ($i + 1) . '</h4>
+                                <h4 class="my-0 fw-normal">' . $row['name'] . '</h4>
                             </div>
                             <div class="card-body">
 
-                                <h1 class="card-title pricing-card-title">$100.00</h1>
-                                    <img class="img-product" src="img/wine_' . ($i + 1) . '.png">                              
+                                <h2 class="card-title pricing-card-title">' . $value_price . '</h2>
+                                    <img class="img-product" src="img/' . $row['img'] . '">                              
                                 <p class="mt-3">Description</p>
                                 <a href="payment_page.php"><button type="button" class="w-100 btn btn-lg btn-outline-success">Add to Cart</button></a>
                             </div>

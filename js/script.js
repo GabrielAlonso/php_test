@@ -5,4 +5,5 @@ select.value = getLast;
 select.onchange = function () {
    lastSelected = select.options[select.selectedIndex].value;
    localStorage.setItem('currency', lastSelected);
+   location.href = 'product.php?currency='+lastSelected;
  };

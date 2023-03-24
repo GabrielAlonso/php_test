@@ -48,7 +48,7 @@
                 </label>
             </div>
             <!-- To Do Create login.php -->
-            <a href="product.php"><button class="w-100 btn btn-lg btn-primary">Sign in</button></a>
+            <a href="product.php?currency=EUR"><button class="w-100 btn btn-lg btn-primary">Sign in</button></a>
             <p class="mt-5 mb-3 text-muted">Gabriel J. Alonso - 2023</p>
     </main>
 
