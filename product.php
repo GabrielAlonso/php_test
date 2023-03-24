@@ -48,7 +48,7 @@ require_once('assets/connection.php');
                                 <h2 class="card-title pricing-card-title">' . $value_price . '</h2>
                                     <img class="img-product" src="img/' . $row['img'] . '">                              
                                 <p class="mt-3">Description</p>
-                                <a href="payment_page.php"><button type="button" class="w-100 btn btn-lg btn-outline-success">Add to Cart</button></a>
+                                <a href="payment_page.php?currency='.$_GET['currency'].'&id='.$row['id'].'"><button type="button" class="w-100 btn btn-lg btn-outline-success">Add to Cart</button></a>
                             </div>
                         </div>
                         </div>';

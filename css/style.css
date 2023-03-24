@@ -1,3 +1,13 @@
 .img-product{
     height:160px;
 }
+
+.img-product-total{
+    height:350px;
+}
+
+.btn-prod {
+    width: 40%;
+    font-size: 30px;
+    padding: 1px 10px;
+}

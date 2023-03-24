@@ -1,3 +1,11 @@
+<?php
+require_once('assets/connection.php');
+require_once('assets/functions.php');
+$id = $_GET['id'];
+$stmt = "SELECT * FROM product WHERE id = ".$id." LIMIT 1";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,24 +27,22 @@
 
             <?php
 
-            $i = 1;
+            //$currNumber = new CurrencyClass();
 
+            
+            foreach ($conn->query($stmt) as $row) {
+  
             echo '<div class="col-md-7 col-lg-8">
             <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Wine ' . ($i + 1) . '</h4>
-                </div>
                 <div class="card-body">
 
-                    <h1 class="card-title pricing-card-title">$100.00</h1>
-                        <img class="img-product" src="img/wine_' . ($i + 1) . '.png">                              
-                    <p class="mt-3">Description</p>
+                        <img class="img-product-total" src="img/' . $row['img'] . '">        
                     
                 </div>
             </div>
-            </div>';
+            </div>
 
-            ?>
+            
 
             <div class="col-md-4 col-lg-4 order-md-last">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -46,22 +52,29 @@
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
-                            <h6 class="my-0">Product name</h6>
-                            <small class="text-muted">Brief description</small>
+                            <h6 class="my-0">'.$row['name'].'</h6>
+                            <small class="text-muted">'.$row['description'].'</small>
                         </div>
-                        <span class="text-muted">$12</span>
+                        <span class="text-muted">'.$row['price_in_eur'].'</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-around">
+                        <button type="button" class="btn-prod btn btn-lg btn-danger">-</button>
+                        <button type="button" class="btn-prod btn btn-lg btn-primary">+</button>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
-                        <span>Total (USD)</span>
-                        <strong>$20</strong>
+                        <span>Total</span>
+                        <strong>'.$row['price_in_eur'].'</strong>
                     </li>
+                    
                     <li class="list-group-item d-flex justify-content-between">
                         <button type="button" data-bs-toggle="modal" data-bs-target="#confirmedPaymentModal" class="w-100 btn btn-lg btn-outline-success">Buy</button>
                     </li>
                 </ul>
-            </div>
+            </div>';
+        }
+            ?>
         </div>
-        <?php require_once('confirmed_payment.php');?>
+        <?php require_once('confirmed_payment.php'); ?>
     </main>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
