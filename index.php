@@ -29,7 +29,7 @@
 
 <body class="text-center">
   <main class="form-signin">
-    <form method="post" action="assets/login.php" enctype="multipart/form-data">
+    <form method="post" action="app/login.php" enctype="multipart/form-data">
       <img class="mb-4" src="img/logo.png" alt="" width="184" height="92">
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
       <p class="bg-danger text-white p-2 fw-bold">Please use this user!<br />Login: user | Password: 123</p>
@@ -48,7 +48,7 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <input type="submit" class="w-100 btn btn-lg btn-primary" value ="vai" />
+      <input type="submit" class="w-100 btn btn-lg btn-primary" value ="Sign In" />
       <p class="mt-5 mb-3 text-muted">Gabriel J. Alonso - 2023</p>
     </form>
   </main>

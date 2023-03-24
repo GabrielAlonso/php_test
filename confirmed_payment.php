@@ -8,7 +8,7 @@
       An email was sent with the order confirmation and tracking code.
       </div>
       <div class="modal-footer">
-        <a href="product.php"><button type="button" class="btn btn-primary">Return to Home</button></a>
+        <a href="product_page.php?currency=<?php echo $_GET['currency'];?>"><button type="button" class="btn btn-primary">Return to Home</button></a>
       </div>
     </div>
   </div>

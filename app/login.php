@@ -17,7 +17,7 @@ if ($_POST['nome'] == '' || $_POST['senha'] == '') {
         session_start();
         $_SESSION['validation'] = 'AMSUb!982NG2';
 
-        header("Location: ../product.php?currency=EUR");
+        header("Location: ../product_page.php?currency=EUR");
     } else {
         header("Location: ../index.php");
     }
