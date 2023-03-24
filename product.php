@@ -1,4 +1,7 @@
 <?php
+session_start();
+if($_SESSION['validation'] == 'AMSUb!982NG2'){
+
 error_reporting(0);
 require_once('assets/connection.php');
 ?>
@@ -63,3 +66,9 @@ require_once('assets/connection.php');
 </body>
 
 </html>
+
+<?php 
+}else{
+    header('Location: index.php');   
+}
+?>
