@@ -29,13 +29,12 @@
 
 <body class="text-center">
     <main class="form-signin">
-        <form>
-            <img class="mb-4" src="img/logo.png" alt="" width="229" height="148">
+            <img class="mb-4" src="img/logo.png" alt="" width="184" height="92">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
             <p class="bg-danger text-white p-2 fw-bold">Please use this user!<br />Login: user | Password: pass123</p>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" autocomplete="off">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" autocomplete="off">
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
@@ -48,15 +47,12 @@
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            <!-- To Do Create login.php -->
+            <a href="product.php"><button class="w-100 btn btn-lg btn-primary">Sign in</button></a>
             <p class="mt-5 mb-3 text-muted">Gabriel J. Alonso - 2023</p>
-
-            
-
-        </form>
     </main>
 
-    <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 
