@@ -36,15 +36,8 @@ function addCart(id) {
       return;
     }
   }
-  var value_final = (value * new_display).toFixed(2).toString();
 
-  if (get_Url() == "BRL") {
-    result_Val = "R$ " + value_final.replace(".", ",");
-  } else if (get_Url() == "USD") {
-    result_Val = "$ " + value_final;
-  } else if (get_Url() == "EUR") {
-    result_Val = value_final.replace(".", ",") + " €";
-  }
+  var result_Val = convertCurrency((value * new_display).toFixed(2).toString());
 
   document.getElementById("total_price").innerHTML = result_Val;
 
@@ -55,4 +48,31 @@ function get_Url() {
   var queryString = window.location.search;
   urlParams = new URLSearchParams(queryString);
   return urlParams.get("currency");
+}
+
+
+function convertCurrency(value) {
+  if (get_Url() == "BRL") {
+    result_Val = "R$ " + value.replace(".", ",");
+  } else if (get_Url() == "USD") {
+    result_Val = "$ " + value;
+  } else if (get_Url() == "EUR") {
+    result_Val = value.replace(".", ",") + " €";
+  }
+  return result_Val;
+}
+
+
+function convertCurrencyDB(value) {
+
+  var value_cr = value.split(" ");
+
+  if (get_Url() == "BRL") {
+    result_Val = value_cr[1].replace(",", ".");
+  } else if (get_Url() == "USD") {
+    result_Val = value_cr[1];
+  } else if (get_Url() == "EUR") {
+    result_Val = value_cr[0].replace(",", ".");
+  }
+  return result_Val;
 }

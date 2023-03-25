@@ -14,6 +14,7 @@ if ($_SESSION['validation'] == 'AMSUb!982NG2') {
     foreach ($products as $product) {
         $result .= '<div class="col-md-7 col-lg-8">
         <div class="card mb-4 rounded-3 shadow-sm">
+            <input type="hidden" id="id_prod" value="' . $product->id . '">
             <div class="card-body">
                     <img class="img-product-total" src="img/' . $product->img . '">        
             </div>
@@ -42,7 +43,7 @@ if ($_SESSION['validation'] == 'AMSUb!982NG2') {
                 </li>
                 
                 <li class="list-group-item d-flex justify-content-between">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#confirmedPaymentModal" class="w-100 btn btn-lg btn-outline-success">Buy</button>
+                    <button type="button" onclick="send_shop()" class="w-100 btn btn-lg btn-outline-success">Buy</button>
                 </li>
             </ul>
         </div>';
@@ -67,6 +68,7 @@ if ($_SESSION['validation'] == 'AMSUb!982NG2') {
         <?php require_once('header.php'); ?>
 
         <main class="container py-3">
+            <input type="hidden" id="id_user" value="<?php echo $_GET['id'] ?>">
             <div class="row row-cols-md-2 mb-3 text-center">
 
                 <?php
@@ -75,8 +77,10 @@ if ($_SESSION['validation'] == 'AMSUb!982NG2') {
             </div>
             <?php require_once('confirmed_payment.php'); ?>
         </main>
+        <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/script.js"></script>
+        <script src="js/script_pay.js"></script>
     </body>
 
     </html>
