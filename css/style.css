@@ -11,3 +11,7 @@
     font-size: 30px;
     padding: 1px 10px;
 }
+
+.txt-align-left {
+    text-align: left;
+}

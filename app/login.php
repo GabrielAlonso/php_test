@@ -1,21 +1,26 @@
 <?php
-require_once('connection.php');
+require '../vendor/autoload.php';
+
+use \App\Entity\User;
+
+
 $user = $_POST['nome'];
 $pass = $_POST['senha'];
+
+$obUser = User::getUser($user, $pass);
 
 if ($_POST['nome'] == '' || $_POST['senha'] == '') {
     header("Location: ../index.php");
 } else {
-    $iwquery = $conn->query("SELECT * FROM user WHERE username = '$user' AND password = '$pass'");
 
-    foreach ($iwquery as $iw) {
-        $usernameIn = $iw["username"];
-        $passwordIn = $iw["password"];
-    }
+        $usernameIn = $obUser->username;
+        $passwordIn = $obUser->password;
+
 
     if ($usernameIn == $user && $passwordIn == $pass) {
         session_start();
         $_SESSION['validation'] = 'AMSUb!982NG2';
+        $_SESSION['username'] = $obUser->username;
 
         header("Location: ../product_page.php?currency=EUR");
     } else {

@@ -41,7 +41,10 @@ if ($_SESSION['validation'] == 'AMSUb!982NG2') {
                     <span>Total</span>
                     <strong><div id="total_price"></div></strong>
                 </li>
-                
+                <li class="list-group-item p-2 d-flex flex-column align-items-start">
+                    <label class="txt-align-left w-100" for="email">Email *</label>
+                    <input type="email" class="form-control" id="email" name="email" />  
+                </li>                
                 <li class="list-group-item d-flex justify-content-between">
                     <button type="button" onclick="send_shop()" class="w-100 btn btn-lg btn-outline-success">Buy</button>
                 </li>

@@ -15,6 +15,8 @@ class Shop
     public $amount;
     public $date_shop;
 
+    public $email;
+
     public static function getShop($where = null, $order = null, $limit = null)
     {
         return (new Database('shop'))->select($where, $order, $limit)
@@ -34,5 +36,13 @@ class Shop
             'amount' => $this->amount,
             'date_shop' => $this->date_shop
         ]);
+    }
+
+    public static function sendEmail($email = null)
+    {
+
+        // Config SMTP and smtp_port
+
+        mail($email, 'Successful Purchase!', 'Thanks for shopping with us! Your order will arrive as soon as possible!');
     }
 }

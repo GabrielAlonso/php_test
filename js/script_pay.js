@@ -8,6 +8,7 @@ async function send_shop() {
     total_price: total_price,
     id_prod: $("#id_prod").val(),
     amount: $('#display_total').html(),
+    email: $("#email").val()
   };
 
   await $.ajax({

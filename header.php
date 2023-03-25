@@ -16,7 +16,11 @@
             <option value="USD">USD</option>
           </select>
         </li>
+        <li class="mt-3 mx-1">Welcome <?php echo $_SESSION['username'];?>!</li>
       </ul>
+      
+
+      
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
         <input type="search" class="form-control" placeholder="Search..." aria-label="Search">

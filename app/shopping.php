@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 use \App\Entity\Shop;
 
 require __DIR__ . '.../../vendor/autoload.php';
@@ -19,6 +19,8 @@ if (isset(
     $obShop->product_id = $_POST["id_prod"];
     $obShop->amount = $_POST["amount"];
     $obShop->insertShop();
+
+    $obShop->sendEmail($_POST["email"]);
 
     http_response_code(200);
     print json_encode('OK');
