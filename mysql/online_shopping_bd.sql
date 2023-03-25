@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Mar-2023 às 13:38
+-- Tempo de geração: 25-Mar-2023 às 13:44
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 8.0.10
 
@@ -31,8 +31,20 @@ CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `img` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `img` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `price_in_eur` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `description`, `img`, `price_in_eur`) VALUES
+(1, 'Wine 01', 'Wine 01 - Tejo', 'wine_1.png', 10.4),
+(2, 'Wine 02', 'Wine 02 - Dão', 'wine_2.png', 3.43),
+(3, 'Wine 03', 'Wine 03 - Alentejo', 'wine_3.png', 12.87),
+(4, 'Wine 04', 'Wine 04 - Douro', 'wine_4.png', 5.66),
+(5, 'Wine 05', 'Wine 05 - Algarve', 'wine_5.png', 12.8);
 
 -- --------------------------------------------------------
 
@@ -43,7 +55,10 @@ CREATE TABLE `product` (
 CREATE TABLE `shop` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `currency_type` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `total_price` float NOT NULL,
   `product_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
   `date_shop` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -64,7 +79,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
-(1, 'user', 'pass123');
+(1, 'user', '123');
 
 --
 -- Índices para tabelas despejadas
@@ -96,7 +111,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `shop`
