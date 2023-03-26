@@ -6,12 +6,13 @@ use \App\Entity\Shop;
 
 $result = '';
 
-$shopping = Shop::getShop("user_id=" . $_SESSION['id_user']);
+$shopping = Shop::getShopByProductName("user_id=" . $_SESSION['id_user']);
 
 if (!empty($shopping)) {
     foreach ($shopping as $shop) {
 
         $result .= '<tr>
+                        <td>' . $shop->name . '</td>
                         <td>' . $shop->currency_type . '</td>
                         <td>' . $shop->amount . '</td>
                         <td>' . $shop->total_price . '</td>
@@ -51,6 +52,7 @@ if ($_SESSION['validation'] == 'AMSUb!982NG2') {
                 <table class="table table-bordered">
                     <thead>
                         <tr>
+                            <th scope="col">Product</th>
                             <th scope="col">Currency</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Total Price</th>

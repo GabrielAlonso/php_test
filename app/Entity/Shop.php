@@ -14,12 +14,19 @@ class Shop
     public $product_id;
     public $amount;
     public $date_shop;
+    public $name;
 
     public $email;
 
     public static function getShop($where = null, $order = null, $limit = null)
     {
         return (new Database('shop'))->select($where, $order, $limit)
+            ->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
+
+    public static function getShopByProductName($where = null, $order = null, $limit = null)
+    {
+        return (new Database('shop A INNER JOIN product PR ON A.product_id=PR.id'))->select($where, $order, $limit, "A.*, PR.name")
             ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 
