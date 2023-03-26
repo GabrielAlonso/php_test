@@ -71,7 +71,7 @@ if ($_SESSION['validation'] == 'AMSUb!982NG2') {
         <?php require_once('header.php'); ?>
 
         <main class="container py-3">
-            <input type="hidden" id="id_user" value="<?php echo $_GET['id'] ?>">
+            <input type="hidden" id="id_user" value="<?php echo $_SESSION['id_user'] ?>">
             <div class="row row-cols-md-2 mb-3 text-center">
 
                 <?php

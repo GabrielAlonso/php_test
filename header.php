@@ -17,6 +17,7 @@
           </select>
         </li>
         <li class="mt-3 mx-1">Welcome <?php echo $_SESSION['username'];?>!</li>
+        <li class="mt-3 mx-5"><a href="my_shopping.php?currency=<?php echo $_GET['currency'];?>">My Shopping</a></li>
       </ul>
       
 
