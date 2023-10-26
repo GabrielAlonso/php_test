@@ -13,8 +13,8 @@ if ($_POST['nome'] == '' || $_POST['senha'] == '') {
     header("Location: ../index.php");
 } else {
 
-        $usernameIn = $obUser->username;
-        $passwordIn = $obUser->password;
+    $usernameIn = $obUser->username;
+    $passwordIn = $obUser->password;
 
 
     if ($usernameIn == $user && $passwordIn == $pass) {
